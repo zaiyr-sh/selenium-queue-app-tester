@@ -1,4 +1,4 @@
-package com.company.MainPage;
+package com.company.QueueAppPages;
 
 import com.company.DriverManagers.DriverManager;
 import com.company.DriverManagers.DriverManagerFactory;

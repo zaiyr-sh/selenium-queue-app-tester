@@ -1,9 +1,8 @@
-package com.company.MainPage;
+package com.company.QueueAppPages;
 
 import com.company.DriverManagers.DriverManager;
 import com.company.DriverManagers.DriverManagerFactory;
 import com.company.DriverManagers.DriverType;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

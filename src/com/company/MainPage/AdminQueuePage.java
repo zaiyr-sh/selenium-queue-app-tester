@@ -9,12 +9,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class AdminQueuePage {
-
     DriverManager driverManager;
     WebDriver driver;
 
     @org.junit.Test
-    public void AdminLoginQueueAppTest() throws InterruptedException {
+    public void AdminPanelQueueAppTest() throws InterruptedException {
         driverManager = DriverManagerFactory.getDriverManager(DriverType.CHROME);
         driver = driverManager.getWebDriver();
         driver.get("https://qr-queue-0.firebaseapp.com/");
@@ -27,15 +26,35 @@ public class AdminQueuePage {
 
         WebElement email = driver.findElement(By.cssSelector("#field_email"));
         WebElement password = driver.findElement(By.cssSelector("#field_password"));
+
+        Thread.sleep(5000);
         email.sendKeys("noble@gmail.com");
+
+        Thread.sleep(5000);
         password.sendKeys("noble");
-        System.out.println("Text Field Set");
+        System.out.println("Employee Data Field Set");
 
         WebElement loginBtn = driver.findElement(By.cssSelector("#input_submit"));
         loginBtn.click();
 
+        System.out.println("Admin Panel is open");
 
-        System.out.println("\"О нас\" button Done with Click");
 
+        Thread.sleep(3000);
+        WebElement deleteBtn = driver.findElement(By.cssSelector(".close-container"));
+        deleteBtn.click();
+
+        Thread.sleep(3000);
+        driver.switchTo().alert().accept();
+
+        System.out.println("The client has been deleted");
+
+        Thread.sleep(3000);
+        WebElement logoutBtn = driver.findElement(By.cssSelector(".logout"));
+        logoutBtn.click();
+
+        Thread.sleep(3000);
+        driver.close();
     }
+
 }

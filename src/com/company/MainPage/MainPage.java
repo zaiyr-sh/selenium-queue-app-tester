@@ -22,23 +22,29 @@ public class MainPage {
     }
 
     @org.junit.Test
-    public void navigateToFooterButtonsTest() {
+    public void navigateToFooterButtonsTest() throws InterruptedException {
         driverManager = DriverManagerFactory.getDriverManager(DriverType.CHROME);
         driver = driverManager.getWebDriver();
         driver.get("https://qr-queue-0.firebaseapp.com/");
         JavascriptExecutor js = (JavascriptExecutor) driver;
 
         WebElement aboutUsBtn = driver.findElement(By.cssSelector(".footer-menu__item:nth-of-type(2)"));
-        System.out.println(aboutUsBtn);
         aboutUsBtn.click();
         System.out.println("\"О нас\" button Done with Click");
+
+        Thread.sleep(3000);
         js.executeScript("window.history.go(-1)");
+
+        Thread.sleep(3000);
 
         WebElement contactsBtn = driver.findElement(By.cssSelector(".footer-menu__item:last-of-type"));
         contactsBtn.click();
         System.out.println("\"Конакты\" button Done with Click");
+
+        Thread.sleep(3000);
         js.executeScript("window.history.go(-1)");
 
+        Thread.sleep(3000);
         driver.close();
     }
 
